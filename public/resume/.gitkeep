@@ -1,0 +1,187 @@
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import Link from "next/link";
+import { ArrowRight, Download, Briefcase, GraduationCap, Award, MessageCircle, Code, Database, Cloud, Server, Wind } from "lucide-react"; // Added relevant icons
+
+// Sample data (replace with actual data)
+const skills = [
+  { name: 'React', icon: Code },
+  { name: 'Next.js', icon: Code },
+  { name: 'TypeScript', icon: Code },
+  { name: 'Node.js', icon: Server },
+  { name: 'Tailwind CSS', icon: Wind },
+  { name: 'Firebase', icon: Database },
+  { name: 'Docker', icon: Cloud },
+  { name: 'Git', icon: Code },
+];
+
+const experience = [
+  {
+    title: "Software Engineer",
+    company: "Tech Solutions Inc.",
+    date: "Jan 2022 - Present",
+    description: "Developed and maintained web applications using React, Next.js, and Node.js. Collaborated with cross-functional teams to deliver high-quality software.",
+    icon: Briefcase
+  },
+  {
+    title: "Bachelor of Science in Computer Science",
+    company: "University of Example",
+    date: "Graduated May 2021",
+    description: "Focused on software development principles, data structures, and algorithms. Completed several projects including [mention a key project].",
+    icon: GraduationCap
+  },
+];
+
+const achievements = [
+    { name: 'Certified Cloud Practitioner', issuer: 'AWS', icon: Award },
+    { name: 'Top Project Award', issuer: 'University Hackathon 2020', icon: Award },
+    // Add more achievements/certifications
+];
+
+export default function Home() {
+  return (
+    <div className="space-y-20 md:space-y-28 fade-in">
+      {/* Hero Section */}
+      <section className="flex flex-col items-center justify-center text-center min-h-[calc(80vh-10rem)] pt-10 md:pt-0">
+         <Avatar className="h-32 w-32 mx-auto mb-6 shadow-lg border-2 border-primary">
+            <AvatarImage src="https://picsum.photos/seed/atisam/200" alt="Atisam Akhtar" />
+            <AvatarFallback>AA</AvatarFallback>
+          </Avatar>
+        <h1 className="text-4xl md:text-6xl font-bold mb-4 text-primary">
+          Hi, I'm Atisam Akhtar
+        </h1>
+        <p className="text-lg md:text-xl text-foreground mb-8 max-w-3xl mx-auto">
+          A passionate and dedicated developer focused on creating modern, efficient, and engaging web experiences. Welcome to my personal space where I share my journey and projects.
+        </p>
+        <div className="flex flex-col sm:flex-row gap-4">
+          <Button asChild size="lg">
+            <Link href="/projects">
+              View My Work <ArrowRight className="ml-2 h-5 w-5" />
+            </Link>
+          </Button>
+          <Button asChild variant="secondary" size="lg">
+             {/* Update this link when the resume PDF is available */}
+            <a href="/resume/AtisamAkhtar_Resume.pdf" download="AtisamAkhtar_Resume.pdf">
+               Download Resume <Download className="ml-2 h-5 w-5" />
+            </a>
+          </Button>
+           <Button asChild variant="outline" size="lg">
+            <Link href="/contact">
+              Get In Touch
+            </Link>
+          </Button>
+        </div>
+      </section>
+
+      {/* Skills Section */}
+      <section className="text-center">
+        <h2 className="text-3xl md:text-4xl font-semibold mb-8 text-primary">My Skills</h2>
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+          {skills.map((skill) => (
+            <Card key={skill.name} className="text-center transition-transform duration-300 hover:scale-105 hover:shadow-lg bg-card border border-border/50 hover:border-primary/70">
+              <CardContent className="p-6 flex flex-col items-center justify-center space-y-2">
+                <skill.icon className="h-8 w-8 text-primary mb-2" />
+                <p className="font-medium text-card-foreground">{skill.name}</p>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </section>
+
+       {/* Experience Section */}
+      <section>
+        <h2 className="text-3xl md:text-4xl font-semibold mb-8 text-center text-primary">My Journey</h2>
+        <div className="relative max-w-3xl mx-auto pl-8 before:absolute before:inset-y-0 before:w-1 before:bg-border/50 before:left-3">
+          {experience.map((item, index) => (
+            <div key={index} className="relative pl-8 mb-10 last:mb-0 group">
+              <div className="absolute left-[-1.1rem] top-[calc(50%-0.75rem)] z-10 flex h-8 w-8 items-center justify-center rounded-full bg-primary shadow-md transition-transform duration-300 group-hover:scale-110">
+                 <item.icon className="h-5 w-5 text-primary-foreground" />
+              </div>
+              <Card className="bg-card transition-shadow duration-300 hover:shadow-lg border border-border/50 hover:border-primary/70">
+                <CardHeader>
+                  <CardTitle className="text-card-foreground">{item.title}</CardTitle>
+                  <CardDescription className="text-sm">
+                    {item.company} | {item.date}
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-card-foreground/80">{item.description}</p>
+                </CardContent>
+              </Card>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Achievements Section */}
+      <section className="text-center">
+        <h2 className="text-3xl md:text-4xl font-semibold mb-8 text-primary">Achievements & Certifications</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          {achievements.map((achievement) => (
+            <Card key={achievement.name} className="text-center transition-transform duration-300 hover:scale-105 hover:shadow-lg bg-card border border-border/50 hover:border-primary/70">
+              <CardContent className="p-6 flex items-center space-x-4">
+                 <achievement.icon className="h-8 w-8 text-primary flex-shrink-0" />
+                 <div className="text-left">
+                    <p className="font-semibold text-card-foreground">{achievement.name}</p>
+                    <p className="text-sm text-muted-foreground">{achievement.issuer}</p>
+                 </div>
+              </CardContent>
+            </Card>
+          ))}
+          {/* Add more achievements as needed */}
+        </div>
+      </section>
+
+      {/* Optional: Testimonials Section */}
+      {/*
+      <section>
+        <h2 className="text-3xl md:text-4xl font-semibold mb-8 text-center text-primary">What Others Say</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          <Card className="bg-card border border-border/50">
+            <CardContent className="p-6">
+              <blockquote className="text-card-foreground italic border-l-4 border-primary pl-4">
+                "Atisam is a highly skilled developer with a great eye for detail. He delivered outstanding results on our project."
+              </blockquote>
+              <p className="text-right mt-4 font-semibold text-card-foreground">- [Client Name], [Client Title/Company]</p>
+            </CardContent>
+          </Card>
+           <Card className="bg-card border border-border/50">
+            <CardContent className="p-6">
+              <blockquote className="text-card-foreground italic border-l-4 border-primary pl-4">
+                "Working with Atisam was a pleasure. He's proactive, communicative, and consistently produces high-quality code."
+              </blockquote>
+              <p className="text-right mt-4 font-semibold text-card-foreground">- [Colleague Name], [Colleague Title]</p>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+      */}
+
+
+      {/* Call to Action Section */}
+      <section className="text-center bg-card p-8 md:p-12 rounded-lg shadow-lg border border-border/50 max-w-4xl mx-auto">
+        <h2 className="text-3xl md:text-4xl font-semibold mb-4 text-primary">Let's Connect</h2>
+        <p className="text-lg text-card-foreground mb-8 max-w-xl mx-auto">
+          Interested in collaborating or discussing a project? I'm always open to new opportunities and challenges. Feel free to reach out!
+        </p>
+        <div className="flex flex-col sm:flex-row justify-center gap-4">
+          <Button asChild size="lg">
+            <Link href="/contact">
+              Contact Me <MessageCircle className="ml-2 h-5 w-5" />
+            </Link>
+          </Button>
+          <Button asChild variant="outline" size="lg">
+            <Link href="/projects">
+              Explore Projects <ArrowRight className="ml-2 h-5 w-5" />
+            </Link>
+          </Button>
+        </div>
+      </section>
+    </div>
+  );
+}
+```</change>
+  <change>
+    <file>public/resume/.gitkeep</file>
+    <description>Create public/resume directory for
