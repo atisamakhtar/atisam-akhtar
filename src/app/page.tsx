@@ -56,24 +56,24 @@ export default function Home() {
           <p className="text-lg md:text-xl text-foreground mb-8 max-w-3xl mx-auto">
             A passionate and dedicated developer focused on creating modern, efficient, and engaging web experiences. Welcome to my personal space where I share my journey and projects.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4">
-        </div>
-          <Button asChild size="lg">
-            <Link href="/projects">
-              View My Work <ArrowRight className="ml-2 h-5 w-5" />
-            </Link>
-          </Button>
-          <Button asChild variant="secondary" size="lg">
-            {/* Update this link when the resume PDF is available */}
-            <a href="/resume/AtisamAkhtar_Resume.pdf" download="AtisamAkhtar_Resume.pdf">
-              Download Resume <Download className="ml-2 h-5 w-5" />
-            </a>
-          </Button>
-          <Button asChild variant="outline" size="lg">
-            <Link href="/contact">
-              Get In Touch
-            </Link>
-          </Button>
+          <div className="flex flex-col justify-center sm:flex-row gap-4">
+            <Button asChild size="lg">
+              <Link href="/projects">
+                View My Work <ArrowRight className="ml-2 h-5 w-5" />
+              </Link>
+            </Button>
+            <Button asChild variant="secondary" size="lg">
+              {/* Update this link when the resume PDF is available */}
+              <a href="/resume/AtisamAkhtar_Resume.pdf" download="AtisamAkhtar_Resume.pdf">
+                Download Resume <Download className="ml-2 h-5 w-5" />
+              </a>
+            </Button>
+            <Button asChild variant="outline" size="lg">
+              <Link href="/contact">
+                Get In Touch
+              </Link>
+            </Button>
+          </div>
         </div>
       </section>
 

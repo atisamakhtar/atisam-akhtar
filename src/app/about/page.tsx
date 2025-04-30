@@ -3,12 +3,12 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 export default function About() {
   return (
-    <div className="space-y-12 fade-in">
+    <div className="space-y-12 fade-in max-w-4xl mx-auto">
       <section className="text-center">
         <h1 className="text-4xl md:text-5xl font-bold mb-4 text-primary">About Me</h1>
          <Avatar className="h-32 w-32 mx-auto mb-6 shadow-lg">
             {/* <AvatarImage src="atisam akhter profile image.png" alt="Atisam Akhtar" /> */}
-            <AvatarImage src="/media/atisam akhter profile image.png  " alt="Atisam Akhtar" />
+            <AvatarImage src="/media/atisam-akhter-profile-image.png  " alt="Atisam Akhtar" />
             <AvatarFallback>AA</AvatarFallback>
           </Avatar>
         <p className="text-lg md:text-xl text-foreground max-w-3xl mx-auto">
@@ -37,7 +37,7 @@ export default function About() {
            </CardHeader>
            <CardContent className="space-y-4 text-card-foreground">
              <div>
-               <h3 className="font-semibold">Degree Name - University Name</h3>
+               <h3 className="font-semibold">BsCS - UMT University of Management and Technology</h3>
                <p className="text-sm text-muted-foreground">Year of Graduation</p>
                <p>Relevant coursework or achievements.</p>
              </div>

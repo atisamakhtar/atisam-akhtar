@@ -25,7 +25,7 @@ const projectsData: Project[] = [
     id: 'project-1',
     title: 'E-commerce Platform',
     description: 'A full-stack e-commerce website built with Next.js, Stripe, and Firebase.',
-    image: '/media/atisam akhter profile image.png',
+    image: 'https://picsum.photos/seed/project4/600/400',
     // pdf: '/pdfs/project1-details.pdf', // Example PDF path
     tags: ['Next.js', 'React', 'Firebase', 'Stripe', 'Tailwind CSS'],
     liveUrl: '#',
@@ -77,14 +77,14 @@ export default function Projects() {
 
   return (
     <div className="space-y-12 fade-in">
-      <section className="text-center">
+      <section className="text-center ">
         <h1 className="text-4xl md:text-5xl font-bold mb-4 text-primary">My Projects</h1>
         <p className="text-lg md:text-xl text-foreground max-w-3xl mx-auto">
           Here's a selection of projects I've worked on. Click on any project to learn more.
         </p>
       </section>
 
-      <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-4xl mx-auto">
         {projectsData.map((project) => (
           <Card key={project.id} className="flex flex-col overflow-hidden transition-all duration-300 hover:shadow-xl hover:border-primary/50 hover:-translate-y-1 bg-card">
              {project.image && (

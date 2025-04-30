@@ -65,34 +65,44 @@ export default function Contact() {
         </p>
       </section>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto">
         <section>
-           <h2 className="text-3xl font-semibold mb-6">Contact Information</h2>
+          <h2 className="text-3xl font-semibold mb-6">Contact Information</h2>
           <Card className="bg-card border-none shadow-none">
-             <CardContent className="space-y-4 p-0">
-               <div className="flex items-center space-x-3">
-                 <Mail className="h-5 w-5 text-primary" />
-                 <a href="mailto:atisam.akhtar@example.com" className="text-card-foreground hover:text-primary transition-colors">
-                   atisam.akhtar@example.com
-                 </a>
-               </div>
-               <div className="flex items-center space-x-3">
-                 <Phone className="h-5 w-5 text-primary" />
-                 <span className="text-card-foreground">(123) 456-7890</span> {/* Replace with actual phone */}
-               </div>
-               <div className="flex items-center space-x-3">
-                 <MapPin className="h-5 w-5 text-primary" />
-                 <span className="text-card-foreground">City, Country</span> {/* Replace with actual location */}
-               </div>
-             </CardContent>
+            <CardContent className="space-y-4 p-6">
+              <div className="flex items-center space-x-3">
+                <Mail className="h-5 w-5 text-primary" />
+                <a href="mailto:atisam.akhtar@gmail.com" className="text-card-foreground hover:text-primary transition-colors">
+                  atisam.akhtar@gmail.com
+                </a>
+                {/* <span> / </span> */}
+                {/* <a href="mailto:atisam.akhter@gmail.com" className="text-card-foreground hover:text-primary transition-colors">
+                  atisam.akhter@gmail.com
+                </a> */}
+              </div>
+              <div className="flex items-center space-x-3">
+                <Phone className="h-5 w-5 text-primary" />
+                <a href="tel:+923135772647" className="text-card-foreground hover:text-primary transition-colors">
+                  <span className="text-card-foreground">+92 313 5772647</span>
+                </a>
+                <span> / </span>
+                <a href="tel:+923244094298" className="text-card-foreground hover:text-primary transition-colors">
+                  <span className="text-card-foreground">+92 324 4094298</span>
+                </a>
+              </div>
+              <div className="flex items-center space-x-3">
+                <MapPin className="h-5 w-5 text-primary" />
+                <span className="text-card-foreground">Lahore, Pakistan</span> {/* Replace with actual location */}
+              </div>
+            </CardContent>
           </Card>
         </section>
 
         <section>
           <h2 className="text-3xl font-semibold mb-6">Send Me a Message</h2>
           <Card className="bg-card shadow-lg">
-             <CardContent className="p-6">
-               <Form {...form}>
+            <CardContent className="p-6">
+              <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
                   <FormField
                     control={form.control}
@@ -114,7 +124,7 @@ export default function Contact() {
                       <FormItem>
                         <FormLabel>Email</FormLabel>
                         <FormControl>
-                          <Input type="email" placeholder="your.email@example.com" {...field} className="bg-input text-foreground placeholder:text-muted-foreground"/>
+                          <Input type="email" placeholder="your.email@example.com" {...field} className="bg-input text-foreground placeholder:text-muted-foreground" />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -139,7 +149,7 @@ export default function Contact() {
                     )}
                   />
                   <Button type="submit" className="w-full" disabled={form.formState.isSubmitting}>
-                     {form.formState.isSubmitting ? "Sending..." : "Send Message"}
+                    {form.formState.isSubmitting ? "Sending..." : "Send Message"}
                   </Button>
                 </form>
               </Form>
